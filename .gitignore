@@ -1,3 +1,20 @@
+# Ignore raw datasets
+data/raw/
+data/*.csv
+data/*.xlsx
+data/*.zip
+
+# Ignore clean datasets
+data/clean/
+data/*.csv
+data/*.xlsx
+data/*.zip
+data/human_readable/
+data/*.csv
+data/*.xlsx
+data/*.zip
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
