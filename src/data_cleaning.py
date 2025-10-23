@@ -1,7 +1,15 @@
+'''Cleans data for datasets provided'''
 import pandas as pd
 
 
 def clean_data():
+    '''
+    Clean median house price data from ONS and convert to a .parquet
+    and .csv formats
+    Dataset: https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity
+    /housing/datasets/medianhousepricefornationalandsubnationalgeographiesquarterly
+    rollingyearhpssadataset09/current/hpssadataset9medianpricepaidforadministrativegeographies.xls
+    '''
     dataset_months = ['Dec', 'Mar', 'Jun', 'Sep']
     letters = [chr(i) for i in range(ord('a'), ord('e') + 1)]
     house_type = {'a': 'all', 'b': 'detached', 'c': 'semi-detached',
