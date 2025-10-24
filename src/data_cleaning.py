@@ -20,7 +20,7 @@ def clean_data():
         for i in range(1995, 2024):
             for month in dataset_months:
                 col_name = 'Year ending ' + month + ' ' + str(i)
-                df.rename(columns={col_name: month + ' ' + str(i)},
+                df.rename(columns={col_name: month + '|' + str(i)},
                           inplace=True)
         df.pop('Region/Country name')
         df.pop('Local authority name')
