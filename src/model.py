@@ -23,7 +23,7 @@ def compute_regression(province: str = 'E06000001', h_type: str = 'all'):
     reg = linear_model.LinearRegression()
     index = np.array([[i] for i in range(len(data))])
     reg.fit(index, data)
-    return [reg.coef_, reg.intercept_]
+    return [reg.intercept_, reg.coef_]
 
 
 def compute_poly_regression(province: str = 'E06000001', h_type: str = 'all'):
@@ -36,14 +36,15 @@ def compute_poly_regression(province: str = 'E06000001', h_type: str = 'all'):
                      ('linear', LinearRegression())])
     model = model.fit(x, y=data)
     coefs = model.named_steps['linear'].coef_.tolist()
+    intercept = model.named_steps['linear'].intercept_
+    a = 110
+    print(intercept + coefs[0] + a*coefs[1] + a*a*coefs[2])
+    coefs[0] = intercept
     return coefs
 
 
 def parse_data(df: pd.DataFrame, province: str = 'E06000001'):
     '''Parses String format of dataframe into format readable for model'''
-    data = df.loc[0, 'Dec|1995':'Mar|2023']
+    data = df.loc[20, 'Dec|1995':'Mar|2023']
     data = data.to_numpy()
     return data
-
-
-compute_poly_regression()
